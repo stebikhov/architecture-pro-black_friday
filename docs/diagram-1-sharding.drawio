@@ -1,0 +1,91 @@
+<mxfile host="65bd71144e">
+    <diagram name="Diagram 1: Shardirovanie" id="-H_mtQnk-PTXWXPvYvuk">
+        <mxGraphModel dx="968" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="client" value="Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="250" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="pymongo-api" value="pymongo_api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="250" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongos" value="Mongos&#xa;(Router)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="250" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="configSrv-group" value="Config Servers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="35" width="340" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="configSrv-1" value="configSrv-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="60" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="configSrv-2" value="configSrv-2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="60" width="85" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="configSrv-3" value="configSrv-3" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="60" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="shard1-group" value="Shard 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="170" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="shard1-1" value="shard1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="200" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="shard2-group" value="Shard 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="320" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="shard2-1" value="shard2" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="350" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-client-api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;" parent="1" source="client" target="pymongo-api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-api-mongos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;" parent="1" source="pymongo-api" target="mongos" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-mongos-config" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;jettySize=auto;orthogonalLoop=1;" parent="1" source="mongos" target="configSrv-group" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-mongos-shard1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;exitDx=0;exitDy=0;" parent="1" source="mongos" target="shard1-group" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge-mongos-shard2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;exitDx=0;exitDy=0;" parent="1" source="mongos" target="shard2-group" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-group" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Legend&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;opacity=90;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="35" width="400" height="315" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-client" value="Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="70" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-client-desc" value="Инициатор запросов к БД" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="70" width="290" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-api" value="pymongo_api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="120" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-api-desc" value="Микросервис онлайн‑магазина" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="120" width="270" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-mongos" value="Mongos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="170" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-mongos-desc" value="Роутер запросов к шардам" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="170" width="290" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-configsrv" value="configSrv" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="695" y="220" width="60" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-configsrv-desc" value="Config Server: хранит метаданные кластера. 3 экземпляра для обеспечения кворума" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="215" width="290" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-node" value="node" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="695" y="285" width="60" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend-node-desc" value="Узел шарда: хранит часть данных.&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="280" width="290" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
